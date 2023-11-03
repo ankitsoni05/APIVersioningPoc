@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace Versioning.Controllers
 {
     [ApiController]
-    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     [Route("api/weather")]
-    public class WeatherForecastController : ControllerBase
+    public class WeatherForecastV2Controller : ControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
@@ -14,7 +14,7 @@ namespace Versioning.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastV2Controller(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
         }
@@ -27,7 +27,7 @@ namespace Versioning.Controllers
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = Random.Shared.Next(-20, 55),
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)],
-                Version = 1.0M
+                Version = 2.0M
             })
             .ToArray();
         }
